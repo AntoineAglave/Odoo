@@ -1,0 +1,4 @@
+src/node_modules
+src/parckage-lock.json
+src/debug.log
+app/debug.log
