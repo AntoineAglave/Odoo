@@ -12,13 +12,13 @@ gulp.task('css', function () {
     .pipe(gulp.dest('../app/css'));
 });
 
-var jsFiles = ['js/app.js'],
+var jsFiles = ['js/jquery-3.4.1.slim.js','js/popper.min.js','js/bootstrap.js','js/app.js'],
     jsDest = '../app/js';
 
 gulp.task('scripts', function() {
     return gulp.src(jsFiles)
         .pipe(concat('app.js'))
-        .pipe(uglify())
+//        .pipe(uglify())
         .pipe(gulp.dest(jsDest));
 });
 
