@@ -1,12 +1,22 @@
+.btn{
+    font-size: 10px;
+    @media (min-width: 1600px) {
+        font-size: inherit;    
+    }
+}
 .col__agenda{
     border: solid #dfe5e9 1px;
     border-right: none;
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
-    min-height: 30px;
+    min-height: 30px;    
     p{
-        font-size: 12px;
+        overflow: hidden;
+        font-size: 6px;
+        @media (min-width: 1600px) {    
+            font-size: 8px;    
+        }
     }
     .month{
         font-size: 15px;

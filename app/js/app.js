@@ -15126,9 +15126,11 @@ return jQuery;
 //# sourceMappingURL=bootstrap.js.map
 
 function reset() {
-$('.box').remove();
+    $('.box').remove();
 };
-
+function create() {
+    $('.agenda .col__agenda div').find('p').text('coucou');
+};
 for (var i = 1; i <= 28; i++) {
     if(i < 10){
         $('#number').append('<div class="day_'+i+' col__agenda p-0"><div class="p-0 pt-2 pb-2"><p class="font-weight-bold m-0">0'+i+'</p></div></div>');
@@ -15137,12 +15139,12 @@ for (var i = 1; i <= 28; i++) {
         $('#number').append('<div class="day_'+i+' col__agenda p-0"><div class="p-0 pt-2 pb-2"><p class="font-weight-bold m-0">'+i+'</p></div></div>');    
     }
     
-    $('#primary').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>');
-    $('#agenda__1').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>'); 
-    $('#agenda__2').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>'); 
-    $('#agenda__3').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>');
-    $('#agenda__4').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>'); 
-    $('#agenda__5').append('<div class="day_'+i+' col__agenda p-0 pt-1 pb-1"></div></div>');    
+    $('#primary').append('<div class="day_'+i+' col__agenda p-1"></div></div>');
+    $('#agenda__1').append('<div class="day_'+i+' col__agenda p-0 p-xl-1"></div></div>'); 
+    $('#agenda__2').append('<div class="day_'+i+' col__agenda p-0 p-xl-1"></div></div>'); 
+    $('#agenda__3').append('<div class="day_'+i+' col__agenda p-0 p-xl-1"></div></div>');
+    $('#agenda__4').append('<div class="day_'+i+' col__agenda p-0 p-xl-1"></div></div>'); 
+    $('#agenda__5').append('<div class="day_'+i+' col__agenda p-0 p-xl-1"></div></div>');    
 }
 
 for (var i = 1; i <= 28; i++) {
@@ -15220,27 +15222,20 @@ $('#primary_button').click(function(){
         if($(this).hasClass('active')){
             $(this).removeClass('active');
             $('.small-menu').css("flex", "0 0 16.66667%");
-            $('#agenda-container').fadeIn(0);
         }else{
             $(this).addClass('active');
             $('.small-menu').css("flex", "0 0 8.33333%");
-            $('#agenda-container').fadeOut(0)
         }
 });
 
 
-$('.col__agenda div').mousemove(function(){
-
+$('.agenda .col__agenda div').click(function(){
     reset(); 
-    $('.container').append('<div class="box bg-white"><p class="text-center"><h3>Plan existing</h3>Voulez vous continuez ?</p><div class="row"></div><button type="button" class="btn btn-dark">Oui</button><button type="button" class="btn btn-dark">Annuler</button></div>');   
-    $('.box').mouseleave(function(){
-        reset();
-    });
-    $(this).mouseleave(function(){
-        reset();
-    });    
-    var x = event.clientX;
-    var y = event.clientY;      
+    $('body').append('<div class="box bg-white"><p class="text-center"><h3>Plan existing</h3>Continue ?</p><div class="row"><div class="col"><button onclick="create()" type="button" class="btn btn-primary">Create</button></div><div class="col-6"><button onclick="reset()" type="button" class="btn btn-danger">Cancel</button></div></div></div>');   
+    var list_height = $('.box').outerHeight();
+    var height = list_height/2;
+    var x = event.clientX + 15;
+    var y = event.clientY - height;      
     console.log(x);
     $('.box').css({"top": y+"px","left" : x+"px"});     
 });
