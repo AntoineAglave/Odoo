@@ -1,9 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 .col__agenda{
     border: solid #dfe5e9 1px;
     border-right: none;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    min-height: 30px;
+    p{
+        font-size: 12px;
+    }
+    .month{
+        font-size: 15px;
+    }
+    div{
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
 }
-
+h1{
+    font-size: 30px;
+}
+#primary{
+    .col__agenda{
+        display: -webkit-inline-box;  
+    }  
+}
 .agenda{
     .col__agenda{
         border: solid #dfe5e9 1px;
@@ -12,53 +35,100 @@
         border-right: none;
     }
 }
-.full_right{
-    margin-left: 5px !important;   
-}
 .right{
-    margin-left: 50%;
     background-color: #e7e7e7;
     right: 0;
     border-radius: 5px 0px 0px 5px;
+    z-index: 1;
+    position: relative;
 }
 .center{
     background-color: #d9d9d9;
+    border: solid white 1px;
 } 
 .left{
-    margin-right: 50%;
-    background-color: #e7e7e7;
+    background-color: rgba(203,203,203,0.5);
     left: 0;   
     border-radius: 0px 5px 5px 0px;
     padding: 2px;
+    z-index: 1;
+    position: relative;
 } 
-.full_left{
-    margin-right: 5px !important;       
-}
 .both{
+    position: relative;
     background-color: #e7e7e7;
     left: 0;   
-    border-radius: 5px;
-    padding: 2px;   
-    margin: 0px 5px;    
+    border-radius: 5px;  
+}
+.offset-left{
+    margin-left: 50%;   
 }
 .bg-orange{
-    position: relative;
-    background-color: $orange;
-//    &:after{
-//        position: absolute;
-//        content: "";
-//        background-color: #ffb16a;
-//        left: 0;
-//        width: 5px;
-//        height: 100%;
-//        top: 0;
-//    }
+    background-color: #ffb16a;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 50%;
+        max-width: 80px;
+        height: 100%;
+        background-color: $orange;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: -1;
+    }
 }
 .bg-blue{
-    background-color: $cyan;
+    background-color: #00b8b4;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 25%;
+        max-width: 80px;
+        height: 100%;
+        background-color: $cyan;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: -1;
+    }    
 }
-.bg-red{
-    background-color: $purple;   
+.bg-light-blue{
+    background-color: #72cbf5;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 25%;
+        max-width: 80px;
+        height: 100%;
+        background-color: #54c0f2;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: -1;
+    }    
+}
+.bg-purple{
+    background-color: #9a4a75; 
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 75%;
+        height: 100%;
+        background-color: #894268;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: -1;
+    }     
 }
 .small-menu{
     transition: 0.5s ease;
@@ -69,7 +139,7 @@
 }
 .nav-link{
     position: relative;
-    span{
+    .notification{
         color: white;
         display: inline-block;
         position: absolute;
@@ -78,22 +148,38 @@
         height: 17px;
         left: 15px;
         width: 29px;
-        border-radius: 20px;
+        border-radius: 5px;
         text-align: center;
         font-size: 12px;
     }
 }
-.bg-yellow{
-    background-color: #fcd600;
-}
-.day_17{
+.day_19{
     background-color: #fefcbd;
 }
-#primary_button{
-    .btn-link{
-        border: 1px solid black;    
-    }
-    cursor: pointer;
-    
-    
+
+.bg-yellow{
+    background-color: #fcd600;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 33%;
+        height: 100%;
+        background-color: #f9ca00;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: -1;
+        background-image: linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        background-size: 3rem 3rem;    
+    }    
+}
+.box{
+    position: fixed;
+    width: 250px;
+    z-index: 10;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
 }
