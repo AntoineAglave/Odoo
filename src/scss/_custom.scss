@@ -4,9 +4,13 @@
         font-size: inherit;    
     }
 }
+.bg-grey{
+    background-color: #bebebe !important;
+}
 .col__agenda{
     border: solid #dfe5e9 1px;
     border-right: none;
+    border-bottom: 0;
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
@@ -14,7 +18,7 @@
     position: relative;
     p{
         overflow: hidden;
-        font-size: 12px;
+        font-size: 10px;
         position: absolute;
         width: 100%;
         left: 0;
@@ -23,13 +27,16 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        @media (min-width: 1200px) {
+            font-size: 14px; 
+        }    
     }
     .month{
         font-size: 15px;
     }
     div{
         position: relative;
-        height: 35px;
+        height: 40px;
         transition: 0.5s;
         cursor: pointer;
         &:hover{
@@ -40,9 +47,20 @@
 h1{
     font-size: 30px;
 }
+#primary_button{
+    button{
+        border: 1px solid;
+    }
+}
+#border{
+    border-bottom: solid #dfe5e9 1px;
+    border-top: solid #dfe5e9 1px;
+}
 #primary{
     .col__agenda{
-        display: -webkit-inline-box;  
+        display: flex;  
+        border: none;
+        border-left: solid #dfe5e9 1px    
     }  
 }
 .agenda{
@@ -81,6 +99,69 @@ h1{
 .offset-left{
     margin-left: 50%;   
 }
+div[data-plan="13"] {
+    &::before{
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        overflow: hidden;
+        background-color: #f9ad2d;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: 0;
+        -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+        clip-path: polygon(0 0, 0% 100%, 100% 0);
+        @media (min-width: 1200px) {
+            width: 30px;
+            height: 30px;
+        } 
+    }
+}  
+div[data-plan="114"] {
+    &::before{
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        overflow: hidden;
+        background-color: #ea5f5c;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: 0;
+        -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+        clip-path: polygon(0 0, 0% 100%, 100% 0);
+        @media (min-width: 1200px) {
+            width: 30px;
+            height: 30px;
+        }     
+    }
+}  
+div[data-plan="411"] {
+    &::before{
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        overflow: hidden;
+        background-color: #00a843;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        border-radius: 5px 0px 0px 5px;
+        z-index: 0;
+        -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+        clip-path: polygon(0 0, 0% 100%, 100% 0);
+        @media (min-width: 1200px) {
+            width: 30px;
+            height: 30px;
+        }         
+    }
+}
 .bg-orange{
     background-color: #ffb16a;
     z-index: 1;
@@ -114,6 +195,7 @@ h1{
         border-radius: 5px 0px 0px 5px;
         z-index: -1;
     }    
+    
 }
 .bg-light-blue{
     background-color: #72cbf5;
@@ -121,8 +203,7 @@ h1{
     &::after{
         content: "";
         position: absolute;
-        width: 25%;
-        max-width: 80px;
+        width: 80%;
         height: 100%;
         background-color: #54c0f2;
         left: 0px;
@@ -148,8 +229,26 @@ h1{
         z-index: -1;
     }     
 }
+#agenda-container{
+    width: 100% !important;
+}
+#name_default{
+    display: block;
+    p{
+        @media (min-width: 1600px) {
+            display: none;
+        }
+        @media (min-width: 1825px) {
+            display: block;
+        }    
+    }
+}
 .small-menu{
+    display: none;
     transition: 0.5s ease;
+    @media (min-width: 1600px) {
+        display: block;
+    } 
 }
 .profil_picture{
     height: 30px;
